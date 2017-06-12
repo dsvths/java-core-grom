@@ -4,7 +4,7 @@ package lesson8.homeWork8;
  * Created by Savenko on 10.06.2017.
  */
 public class Demo {
-    public Student craeteHighestParent() {
+    public Student crteateHighestParent() {
         Student student1 = new Student("Denis", "Potapov", 5, new Course[3]);
 
 
