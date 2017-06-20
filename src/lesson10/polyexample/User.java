@@ -1,7 +1,5 @@
 package lesson10.polyexample;
 
-import lesson10.polyexample.Human;
-
 /**
  * Created by Savenko on 18.06.2017.
  */
