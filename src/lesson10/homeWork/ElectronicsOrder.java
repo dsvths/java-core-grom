@@ -25,7 +25,7 @@ public class ElectronicsOrder extends Order {
     }
 
     @Override
-    void validateOrder() {
+    public void validateOrder() {
         if (getBasePrice() >= 100 && getCustomerOwned().getGender() =="Женский");
         if (getCustomerOwned().getCity() == "Киев" || getCustomerOwned().getCity() =="Одесса" || getCustomerOwned().getCity() =="Днепр" || getCustomerOwned().getCity() =="Харьков");
         if (getShipToCity() == "Киев" || getShipToCity() == "Днепр" || getShipToCity() == "Одесса" || getShipToCity() == "Харьков");
@@ -34,7 +34,7 @@ public class ElectronicsOrder extends Order {
     }
 
     @Override
-    void calculatePrice() {
+    public void calculatePrice() {
         double price = 0;
         if (getBasePrice() >= 5000) {
             price = getBasePrice() + getBasePrice()*0.02;
