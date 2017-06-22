@@ -38,16 +38,16 @@ public class ElectronicsOrder extends Order {
     @Override
     public void calculatePrice() {
         double price = 0;
-        double comission = 0;
+        double commission = 0;
         if (getShipToCity() == "Киев" || getShipToCity() == "Одесса") {
-            comission = getBasePrice() + getBasePrice() * 0.1;
+            commission = getBasePrice() + (getBasePrice() * 0.1);
 
-        } else comission = getBasePrice() + getBasePrice() * 0.15;
+        } else commission = getBasePrice() + (getBasePrice() * 0.15);
 
-        if (getBasePrice() >= 1000) {
-            price = (getBasePrice() + comission) - (getBasePrice() + comission) * 0.05;
+        if (getBasePrice() > 1000) {
+            price = (getBasePrice() + commission) - ((getBasePrice() + commission) * 0.05);
         }
-        price = getBasePrice() + comission;
+        price = getBasePrice() + commission;
 
         setTotalPrice(price);
 
