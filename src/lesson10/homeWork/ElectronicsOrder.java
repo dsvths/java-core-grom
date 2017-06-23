@@ -30,10 +30,9 @@ public class ElectronicsOrder extends Order {
         {
             if (getCustomerOwned().getCity() == "Киев" || getCustomerOwned().getCity() == "Одесса" || getCustomerOwned().getCity() == "Днепр" || getCustomerOwned().getCity() == "Харьков")
                 ;
-            {
-                if (getShipToCity() == "Киев" || getShipToCity() == "Днепр" || getShipToCity() == "Одесса" || getShipToCity() == "Харьков")
+            if (getShipToCity() == "Киев" || getShipToCity() == "Днепр" || getShipToCity() == "Одесса" || getShipToCity() == "Харьков")
                     ;
-            }
+            setDateConfirmed(new Date());
         }
 
         setDateConfirmed(new Date());
