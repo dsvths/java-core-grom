@@ -15,12 +15,13 @@ public class FurnitureOrder extends Order {
 
     @Override
     public void validateOrder() {
-        if (getBasePrice() >= 500 && getCustomerOwned().getName() !="Тест"){
-            if (getCustomerOwned().getCity() == "Киев" || getCustomerOwned().getCity() == "Львов")
+        if (getBasePrice() >= 500 && getCustomerOwned().getName() !="Тест") {
+            if (getCustomerOwned().getCity() == "Киев" || getCustomerOwned().getCity() == "Львов") {
+                setDateConfirmed(new Date());
+            }
+
             setDateConfirmed(new Date());
         }
-
-        setDateConfirmed(new Date());
 
     }
 
