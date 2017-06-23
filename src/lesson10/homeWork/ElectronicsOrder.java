@@ -27,10 +27,14 @@ public class ElectronicsOrder extends Order {
     @Override
     public void validateOrder() {
         if (getBasePrice() >= 100 && getCustomerOwned().getGender() == "Женский") ;
-        if (getCustomerOwned().getCity() == "Киев" || getCustomerOwned().getCity() == "Одесса" || getCustomerOwned().getCity() == "Днепр" || getCustomerOwned().getCity() == "Харьков")
-            ;
-        if (getShipToCity() == "Киев" || getShipToCity() == "Днепр" || getShipToCity() == "Одесса" || getShipToCity() == "Харьков")
-            ;
+        {
+            if (getCustomerOwned().getCity() == "Киев" || getCustomerOwned().getCity() == "Одесса" || getCustomerOwned().getCity() == "Днепр" || getCustomerOwned().getCity() == "Харьков")
+                ;
+            {
+                if (getShipToCity() == "Киев" || getShipToCity() == "Днепр" || getShipToCity() == "Одесса" || getShipToCity() == "Харьков")
+                    ;
+            }
+        }
 
         setDateConfirmed(new Date());
     }
