@@ -9,7 +9,7 @@ public class Controller {
     public Controller(API[] apis) {
         this.apis = apis;
     }
-    private Room[] requestRooms(int price, int persons, String city, String hotel){
+    public Room[] requestRooms(int price, int persons, String city, String hotel){
         int index = 0;
         for (API api: apis){
             index += api.findRooms(price, persons, city, hotel).length;
@@ -27,7 +27,7 @@ public class Controller {
         return result;
     }
 
-    private Room[] check(API api1, API api2) {
+    public Room[] check(API api1, API api2) {
         Room[] roomsAPI1 = api1.getAll();
         Room[] roomsAPI2 = api2.getAll();
         Room[] result;
@@ -36,7 +36,7 @@ public class Controller {
         for (Room roomApi1 : roomsAPI1) {
             for (Room roomApi2 : roomsAPI2) {
                 if (roomApi1 != null && roomApi2 != null && roomApi1.getPersons() == roomApi2.getPersons() && roomApi1.getPrice() == roomApi2.getPrice() && roomApi1.getHotelName().equals(roomApi2.getHotelName()) && roomApi1.getCityName().equals(roomApi2.getCityName()))
-                    ;
+
                 index++;
             }
         }
