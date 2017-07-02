@@ -5,7 +5,7 @@ package lesson11.homework11;
  */
 public class BookingComAPI implements API {
 
-    private Room[] rooms;
+    Room[] rooms;
 
     public BookingComAPI(Room[] rooms) {
         this.rooms = rooms;
@@ -27,9 +27,6 @@ public class BookingComAPI implements API {
                 i++;
             }
         }
-
-
-
         return finderRoom;
     }
 

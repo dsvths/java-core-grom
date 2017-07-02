@@ -4,7 +4,7 @@ package lesson11.homework11;
  * Created by Savenko on 02.07.2017.
  */
 public class TripAdvisorAPI implements API{
-    private Room[] rooms;
+    Room[] rooms;
 
     public TripAdvisorAPI(Room[] rooms) {
         this.rooms = rooms;
