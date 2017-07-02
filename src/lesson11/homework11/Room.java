@@ -46,19 +46,11 @@ public class Room {
         return cityName;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public void setPersons(int persons) {
-        this.persons = persons;
-    }
-
-    public void setHotelName(String hotelName) {
-        this.hotelName = hotelName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
+    public void setDateAvailableFrom(Date dateAvailableFrom) {
+        this.dateAvailableFrom = dateAvailableFrom;
     }
 }
