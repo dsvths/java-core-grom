@@ -28,13 +28,34 @@ public class Controller {
     }
 
     private Room[] check(API api1, API api2) {
-        Room[] rooms = new Room[5];
-        for (API api : apis) {
-            if (api1 == api2);
+        Room[] roomsAPI1 = api1.getAll();
+        Room[] roomsAPI2 = api2.getAll();
+        Room[] result;
+        int index = 0;
 
+        for (Room roomApi1 : roomsAPI1) {
+            for (Room roomApi2 : roomsAPI2) {
+                if (roomApi1 != null && roomApi2 != null && roomApi1.getPersons() == roomApi2.getPersons() && roomApi1.getPrice() == roomApi2.getPrice() && roomApi1.getHotelName().equals(roomApi2.getHotelName()) && roomApi1.getCityName().equals(roomApi2.getCityName()))
+                    ;
+                index++;
+            }
         }
-        return new Room[api1];
 
+        result = new Room[index];
+        int i = 0;
+
+        for (Room roomApi1 : roomsAPI1) {
+            for (Room roomApi2 : roomsAPI2) {
+                if (roomApi1 != null && roomApi2 != null && roomApi1.getPersons() == roomApi2.getPersons() && roomApi1.getPrice() == roomApi2.getPrice() && roomApi1.getHotelName().equals(roomApi2.getHotelName()) && roomApi1.getCityName().equals(roomApi2.getCityName())) {
+                    result[i] = roomApi1;
+                    i++;
+                }
+            }
+            return result;
+        }
+        return result;
     }
+
+
 
 }
