@@ -5,7 +5,7 @@ package lesson11.homework11;
  */
 public class BookingComAPI implements API {
 
-    private Room[] rooms = new Room[5];
+    private Room[] rooms;
 
     public BookingComAPI(Room[] rooms) {
         this.rooms = rooms;
@@ -13,12 +13,16 @@ public class BookingComAPI implements API {
 
     @Override
     public Room[] findRooms(int price, int persons, String city, String hotel) {
-
+        int index = 0;
         for (Room rooms : rooms){
-            if (rooms != null && price <= (rooms.getPrice() + 100) || price >= (rooms.getPrice() - 100));
+            if (rooms != null && price <= (rooms.getPrice() + 100) || price >= (rooms.getPrice() - 100)){
+                if (persons == rooms.getPersons() && city == rooms.getCityName() && hotel == rooms.getHotelName());
+            }
+            index++;
+
         }
 
-        return new Room[0];
+        return new Room[index];
     }
 
     @Override
