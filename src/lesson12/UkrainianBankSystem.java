@@ -21,7 +21,7 @@ public class UkrainianBankSystem implements BankSystem {
     @Override
     public void fund(User user, int amount) {
         //to do - done
-        if (!checkFund(amount, user))
+        if (!checkFund(amount, user) && !checkCurrency(user, user))
             return;
         user.setBalance(user.getBalance() + amount);
     }
@@ -82,5 +82,11 @@ public class UkrainianBankSystem implements BankSystem {
             return false;
         }
         return true;
+    }
+
+    private boolean checkCurrency (User fromUser, User toUser){
+        if (fromUser.getBank().getCurrency() == toUser.getBank().getCurrency())
+            return true;
+        return false;
     }
 }
