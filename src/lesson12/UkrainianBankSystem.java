@@ -21,7 +21,7 @@ public class UkrainianBankSystem implements BankSystem {
     @Override
     public void fund(User user, int amount) {
         //to do - done
-        if (!checkFund(amount, user) && !checkCurrency(user, user))
+        if (!checkFund(amount, user))
             return;
         user.setBalance(user.getBalance() + amount);
     }
@@ -31,11 +31,14 @@ public class UkrainianBankSystem implements BankSystem {
         //снимаем деньги fromUser
         //поплняем toUser
 
-        if (!checkWithdraw(fromUser, amount))
-         return;
-
-        if (!checkFund(amount, toUser))
+        if (!checkWithdraw(fromUser, amount) && !checkFund(amount, toUser) && !checkCurrency(fromUser, toUser))
             return;
+
+//        if (!checkFund(amount, toUser))
+//            return;
+//
+//        if (!checkCurrency(fromUser, toUser))
+//            return;
 
         //TO DO check fund rules - done
 
