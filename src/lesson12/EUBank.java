@@ -4,8 +4,8 @@ package lesson12;
  * Created by Savenko on 07.07.2017.
  */
 public class EUBank extends Bank {
-    public EUBank(long id, String bankCountry, Currency currency, int numbersOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
-        super(id, bankCountry, currency, numbersOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
+    public EUBank(long id, String bankCountry, Currency currency, int numberOfEmployees, double avrSalaryOfEmployee, long rating, long totalCapital) {
+        super(id, bankCountry, currency, numberOfEmployees, avrSalaryOfEmployee, rating, totalCapital);
     }
 
     @Override
