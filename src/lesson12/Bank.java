@@ -59,12 +59,12 @@ public abstract class Bank {
         this.currency = currency;
     }
 
-    public int getNumbersOfEmploeees() {
+    public int getNumbersOfEmployees() {
         return numbersOfEmployees;
     }
 
-    public void setNumbersOfEmploeees(int numbersOfEmploeees) {
-        this.numbersOfEmployees = numbersOfEmploeees;
+    public void setNumbersOfEmployees(int numbersOfEmployees) {
+        this.numbersOfEmployees = numbersOfEmployees;
     }
 
     public double getAvrSalaryOfEmployee() {
