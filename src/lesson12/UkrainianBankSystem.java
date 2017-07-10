@@ -50,6 +50,8 @@ public class UkrainianBankSystem implements BankSystem {
     @Override
     public void paySalary(User user) {
         //TO DO homework - done
+        if (!checkFund(user.getBank().getLimitOfFunding(), user))
+            return;
         user.setBalance(user.getBalance() + user.getSalary());
 
     }
@@ -88,8 +90,6 @@ public class UkrainianBankSystem implements BankSystem {
     }
 
     private boolean checkCurrency (User fromUser, User toUser){
-        if (fromUser.getBank().getCurrency() == toUser.getBank().getCurrency())
-            return true;
-        return false;
+        return fromUser.getBank().getCurrency() == toUser.getBank().getCurrency();
     }
 }
