@@ -31,14 +31,17 @@ public class UkrainianBankSystem implements BankSystem {
         //снимаем деньги fromUser
         //поплняем toUser
 
-        if (!checkWithdraw(fromUser, amount) && !checkFund(amount, toUser) && !checkCurrency(fromUser, toUser))
+       // if (!checkWithdraw(fromUser, amount) && !checkFund(amount, toUser) && !checkCurrency(fromUser, toUser))
+        //    return;
+
+        if (!checkFund(amount, toUser))
             return;
 
-//        if (!checkFund(amount, toUser))
-//            return;
-//
-//        if (!checkCurrency(fromUser, toUser))
-//            return;
+        if (!checkCurrency(fromUser, toUser))
+            return;
+
+        if (!checkCurrency(fromUser, toUser))
+            return;
 
         //TO DO check fund rules - done
 
