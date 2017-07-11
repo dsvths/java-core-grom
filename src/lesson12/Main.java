@@ -21,7 +21,7 @@ public class Main {
         System.out.println(user1.getBalance());
 
         User user2 = new User(1003, "Eugen", 7538, 18, "Booking", 3000, euBank);
-        bankSystem.transferMoney(user, user2, 350);
+        bankSystem.transferMoney(user, user2, 150);
         System.out.println(user2.getBalance());
 
         User user3 = new User(712, "Katia", 9270, 11, "Kola", 1800, euBank);

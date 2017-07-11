@@ -31,17 +31,17 @@ public class UkrainianBankSystem implements BankSystem {
         //снимаем деньги fromUser
         //поплняем toUser
 
-       // if (!checkWithdraw(fromUser, amount) && !checkFund(amount, toUser) && !checkCurrency(fromUser, toUser))
-        //    return;
-
-        if (!checkFund(amount, toUser))
+        if (!checkWithdraw(fromUser, amount) && !checkFund(amount, toUser) && !checkCurrency(fromUser, toUser))
             return;
 
-        if (!checkCurrency(fromUser, toUser))
-            return;
-
-        if (!checkCurrency(fromUser, toUser))
-            return;
+//        if (!checkFund(amount, toUser))
+//            return;
+//
+//        if (!checkCurrency(fromUser, toUser))
+//            return;
+//
+//        if (!checkCurrency(fromUser, toUser))
+//            return;
 
         //TO DO check fund rules - done
 
@@ -93,6 +93,9 @@ public class UkrainianBankSystem implements BankSystem {
     }
 
     private boolean checkCurrency (User fromUser, User toUser){
-        return fromUser.getBank().getCurrency() == toUser.getBank().getCurrency();
+        if (fromUser.getBank().getCurrency() != toUser.getBank().getCurrency()){
+            return false;
+        }
+        return true;
     }
 }
