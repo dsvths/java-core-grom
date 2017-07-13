@@ -31,9 +31,9 @@ public class UkrainianBankSystem implements BankSystem {
         //снимаем деньги fromUser
         //поплняем toUser
 
-        if (!checkWithdraw(fromUser, amount) && !checkFund(amount, toUser) && !checkCurrency(fromUser, toUser))
+        if (!checkWithdraw(fromUser, amount) || !checkFund(amount, toUser) || !checkCurrency(fromUser, toUser))
             return;
-        if (fromUser.getBalance() < (amount + amount * fromUser.getBank().getCommission(amount)))
+        if (fromUser.getBalance() <= (amount + amount * fromUser.getBank().getCommission(amount)))
             return;
 
 //        if (!checkFund(amount, toUser))
@@ -94,8 +94,13 @@ public class UkrainianBankSystem implements BankSystem {
         return true;
     }
 
+    private void printCurrencyErrorMsg(User fromUser, User toUser){
+        System.err.println("Can't transfer money from user " + fromUser.toString() + " to user " + toUser.toString());
+    }
+
     private boolean checkCurrency (User fromUser, User toUser){
-        if (fromUser.getBank().getCurrency() != toUser.getBank().getCurrency()){
+        if(fromUser.getBank().getCurrency() != toUser.getBank().getCurrency()){
+            printCurrencyErrorMsg(fromUser, toUser);
             return false;
         }
         return true;
