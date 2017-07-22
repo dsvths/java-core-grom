@@ -7,7 +7,7 @@ import java.util.Collections;
 
 public class TascSortArray {
     public static void main(String[] args) {
-        int[] array = {100, 250, 320, 10, 18, 27, 148};
+        int[] array = {100, 250, 320, 10, 18, 27, 148, 5, 5, 3};
 
         System.out.println(Arrays.toString(sortAscending(array)));
         System.out.println(Arrays.toString(sortDescending(array)));

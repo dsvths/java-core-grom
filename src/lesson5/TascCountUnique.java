@@ -15,7 +15,7 @@ public class TascCountUnique {
         }
 
         int count = 1;
-        boolean flag = true;
+        boolean flag;
 
         for (int i = 1; i < array.length; i++) {
             flag = true;

@@ -11,20 +11,13 @@ public class TascWithdrawal {
         withdraw(names, balances, "Dan", 2000);
 
         System.out.println(Arrays.toString(balances));
-
-
     }
 
     static int withdraw (String[] clients, int[] balances, String client, int amount) {
 
-
-
             int clientIndex = findClientByName(clients, client);
             if (balances[clientIndex] < amount)
-
                 return -1;
-
-
 
 
 

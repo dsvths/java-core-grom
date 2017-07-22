@@ -28,7 +28,7 @@ public class Order {
     public Order() {
     }
 
-    Order order = new Order(100, new Date(), false, null, "Dnepr", "Ukraine", "Buy");
+    //Order order = new Order(100, new Date(), false, null, "Dnepr", "Ukraine", "Buy");
 
     void confirmOrder() {
         isConfirmed = true;
