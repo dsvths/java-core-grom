@@ -5,9 +5,9 @@ package lesson13;
  */
 public class User {
 
-    long id;
-    String name;
-    String sessionId;
+   private long id;
+   private String name;
+   private String sessionId;
 
     public User(long id, String name, String sessionId) {
         this.id = id;
