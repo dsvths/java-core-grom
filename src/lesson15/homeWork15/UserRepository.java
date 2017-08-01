@@ -1,5 +1,7 @@
 package lesson15.homeWork15;
 
+import java.util.Arrays;
+
 /**
  * Created by Savenko on 01.08.2017.
  */
@@ -39,7 +41,7 @@ public class UserRepository {
         if (curUser == null)
             return null;
 
-        long curUserId = curUser.getId();
+ //       long curUserId = curUser.getId();
 
 
 //        int i =0;
@@ -92,11 +94,14 @@ public class UserRepository {
 
     private User findById(long id){
         for (User user : users){
-            if (user != null && id == user.getId())
+            if (user != null && user.equals(users))
                 return user;
         }
         return null;
     }
+
+
+
 
     public User[] getUsers(){return users;}
 
