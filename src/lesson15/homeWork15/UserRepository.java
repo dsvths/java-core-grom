@@ -46,7 +46,7 @@ public class UserRepository {
 
         int i =0;
         for (User us : users) {
-            if (us != null && us.equals(user)){   //us.getId() == user.getId()
+            if (us != null && us.getId() == user.getId()){
                 users[i] = user;
                 break;
             }
@@ -55,19 +55,6 @@ public class UserRepository {
         return user;
     }
 
-
-
-//    void delete (long id){
-//
-//        int i =0;
-//        for (User user1 : users) {
-//            if (user1.getId() == user1.getId()){
-//                users[i] = user1;
-//                break;
-//            }
-//            i++;
-//        }
-//    }
 
     void delete (long id){
 
