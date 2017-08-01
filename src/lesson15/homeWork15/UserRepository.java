@@ -44,20 +44,9 @@ public class UserRepository {
         long curUserId = curUser.getId();
 
 
-//        int i =0;
-//        for (User us : users) {
-//            if (us != null && us.getId() == user.getId()){
-//                users[i] = user;
-//                break;
-//            }
-//            i++;
-//        }
-//        return user;
-//    }
-
         int i =0;
         for (User us : users) {
-            if (us != null && us.equals(user)){
+            if (us != null && us.getId() == user.getId()){
                 users[i] = user;
                 break;
             }
@@ -84,7 +73,7 @@ public class UserRepository {
 
         int i =0;
         for (User user1 : users) {
-            if (user1.equals(user1)){
+            if (user1.equals(users)){
                 users[i] = user1;
                 break;
             }
@@ -94,7 +83,7 @@ public class UserRepository {
 
     private User findById(long id){
         for (User user : users){
-            if (user != null && user.equals(users))
+            if (user != null && user.equals(id))
                 return user;
         }
         return null;
