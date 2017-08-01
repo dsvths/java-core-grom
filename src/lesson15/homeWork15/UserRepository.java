@@ -71,6 +71,9 @@ public class UserRepository {
 
     void delete (long id){
 
+        User user = findById(id);
+        if (user == null)
+            return;
         int i =0;
         for (User user1 : users) {
             if (user1.equals(users)){
