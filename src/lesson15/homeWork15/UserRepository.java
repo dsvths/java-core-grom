@@ -41,7 +41,7 @@ public class UserRepository {
         if (curUser == null)
             return null;
 
- //       long curUserId = curUser.getId();
+        long curUserId = curUser.getId();
 
 
 //        int i =0;
