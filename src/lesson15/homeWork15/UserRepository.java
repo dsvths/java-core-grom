@@ -37,11 +37,11 @@ public class UserRepository {
     public User update (User user){
         if (user == null)
             return null;
-        User curUser = findById(user.getId());
-        if (curUser == null)
-            return null;
-
-        long curUserId = curUser.getId();
+//        User curUser = findById(user.getId());
+//        if (curUser == null)
+//            return null;
+//
+//        long curUserId = curUser.getId();
 
 
         int i =0;
@@ -64,7 +64,7 @@ public class UserRepository {
         int i =0;
         for (User user1 : users) {
             if (user1.equals(users)){
-                users[i] = user1;
+                users[i] = null;
                 break;
             }
             i++;
