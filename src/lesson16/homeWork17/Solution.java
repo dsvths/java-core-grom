@@ -27,7 +27,7 @@ public class Solution {
         int count = 0;
 
         for (int i = 0; i < words.length; i++)
-            if (check(words[i]))
+            if (check(words[i]) && !words[i].isEmpty())
                 count++;
         return count;
     }
