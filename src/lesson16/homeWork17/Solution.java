@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class Solution {
     public static void main(String[] args) {
 
-        String test = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 354 sed do eiusmod 18 tempor incididunt ut && labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+        String test = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
 
         //System.out.println(check(test));
@@ -24,10 +24,7 @@ public class Solution {
 
         //check(words);
 
-
-
         int count = 0;
-
 
         for (int i = 0; i < words.length; i++)
             if (check(words[i]))
@@ -35,10 +32,10 @@ public class Solution {
         return count;
     }
 
-    private static boolean check (String str){
+    private static boolean check(String str) {
         char[] chars = str.toCharArray();
 
-        for (char c : chars){
+        for (char c : chars) {
             if (!Character.isLetter(c))
                 return false;
         }
