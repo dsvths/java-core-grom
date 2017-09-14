@@ -10,6 +10,8 @@ public class Solution {
 
         String test = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
+        String gon = "*&^%$$ &^% #$)(@#! 734618324667";
+
         System.out.println(countWords(test));
 
         System.out.println(maxWord(test));
@@ -52,6 +54,12 @@ public class Solution {
 
         if (words.length == 0)
             return null;
+
+        for (String word : words){
+            if (maxWord.length() > 0 && check(word))
+                maxWord = word;
+            break;
+        }
 
         for (String word : words)
             if (maxWord.length() < word.length() && check(word) && !word.isEmpty())
