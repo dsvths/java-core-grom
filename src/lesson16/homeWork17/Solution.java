@@ -55,16 +55,15 @@ public class Solution {
         if (words.length == 0)
             return null;
 
-        for (String word : words){
-            if (maxWord.length() > 0 && check(word))
-                maxWord = word;
-            break;
-        }
+        if (maxWord == null)
+            return null;
 
         for (String word : words)
             if (maxWord.length() < word.length() && check(word) && !word.isEmpty())
                 maxWord = word;
         return maxWord;
+
+
     }
 
     public static String minWord(String input){
