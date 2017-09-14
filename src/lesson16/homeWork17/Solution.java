@@ -10,10 +10,14 @@ public class Solution {
 
         String test = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
-
-        //System.out.println(check(test));
-
         System.out.println(countWords(test));
+
+        System.out.println("Самое длинное слово: " + maxWord(test));
+
+        System.out.println("Самое короткое слово: " + minWord(test));
+
+
+
     }
 
     public static int countWords(String input) {
@@ -40,6 +44,26 @@ public class Solution {
                 return false;
         }
         return true;
+    }
+
+    public static String maxWord(String input){
+        String[] words = input.split(" ");
+        String maxWord = "";
+
+        for (String word : words)
+            if (maxWord.length() < word.length())
+                maxWord = word;
+        return maxWord;
+    }
+
+    public static String minWord(String input){
+        String[] words = input.split(" ");
+        String minWord = input;
+
+        for (String word : words)
+            if (minWord.length() > word.length())
+                minWord = word;
+        return minWord;
     }
 
 }
