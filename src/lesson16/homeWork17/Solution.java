@@ -53,6 +53,8 @@ public class Solution {
         if (words.length == 0)
             return null;
 
+        if (maxWord == null)
+            return null;
 
         for (String word : words)
             if (maxWord.length() < word.length() && check(word))
@@ -65,6 +67,9 @@ public class Solution {
         String minWord = input;
 
         if (words.length == 0)
+            return null;
+        
+        if (minWord == null)
             return null;
 
         for (String word : words)
