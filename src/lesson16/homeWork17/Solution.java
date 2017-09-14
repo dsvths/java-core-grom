@@ -50,8 +50,12 @@ public class Solution {
         String[] words = input.split(" ");
         String maxWord = "";
 
+        if (words.length == 0)
+            return null;
+
+
         for (String word : words)
-            if (maxWord.length() < word.length())
+            if (maxWord.length() < word.length() && check(word))
                 maxWord = word;
         return maxWord;
     }
@@ -60,8 +64,11 @@ public class Solution {
         String[] words = input.split(" ");
         String minWord = input;
 
+        if (words.length == 0)
+            return null;
+
         for (String word : words)
-            if (minWord.length() > word.length())
+            if (minWord.length() > word.length() && check(word))
                 minWord = word;
         return minWord;
     }
