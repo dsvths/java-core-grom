@@ -12,9 +12,9 @@ public class Solution {
 
         System.out.println(countWords(test));
 
-        System.out.println("Самое длинное слово: " + maxWord(test));
+        System.out.println(maxWord(test));
 
-        System.out.println("Самое короткое слово: " + minWord(test));
+        System.out.println(minWord(test));
 
 
 
