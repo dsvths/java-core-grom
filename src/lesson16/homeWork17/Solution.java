@@ -73,9 +73,18 @@ public class Solution {
 
     public static String minWord(String input){
         String[] words = input.split(" ");
-        String minWord = input;
+        String minWord = null;
 
         if (words.length == 0)
+            return null;
+
+        for (String word : words)
+            if (word.length() > 0 && check(word) && !word.isEmpty()) {
+                minWord = word;
+                break;
+            }
+
+        if (minWord == null)
             return null;
 
         for (String word : words)
