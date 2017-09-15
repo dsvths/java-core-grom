@@ -14,7 +14,7 @@ public class Solution {
 
         System.out.println(countWords(test));
 
-        System.out.println(maxWord(test));
+        System.out.println(maxWord(gon));
 
         System.out.println(minWord(test));
 
@@ -50,10 +50,16 @@ public class Solution {
 
     public static String maxWord(String input){
         String[] words = input.split(" ");
-        String maxWord = "";
+        String maxWord = null;
 
         if (words.length == 0)
             return null;
+
+        for (String word : words)
+            if (word.length() > 0 && check(word) && !word.isEmpty()) {
+                maxWord = word;
+                break;
+            }
 
         if (maxWord == null)
             return null;
@@ -61,8 +67,7 @@ public class Solution {
         for (String word : words)
             if (maxWord.length() < word.length() && check(word) && !word.isEmpty())
                 maxWord = word;
-        return maxWord;
-
+            return maxWord;
 
     }
 
