@@ -1,5 +1,7 @@
 package lesson16.homeWork17;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.regex.Pattern;
 
 /**
@@ -12,15 +14,18 @@ public class Solution {
 
         String gon = "*&^%$$ &^% #$)(@#! 734618324667";
 
+        String test2 = "";
+
         System.out.println(countWords(test));
 
         System.out.println(maxWord(gon));
 
         System.out.println(minWord(test));
 
-
+        System.out.println(mostCountedWord(test));
 
     }
+
 
     public static int countWords(String input) {
 
@@ -93,5 +98,39 @@ public class Solution {
         return minWord;
     }
 
+    public static String mostCountedWord(String input){
+        String[] words = input.split(" ");
+        Arrays.sort(words);
+
+        String maxWord = null, word = null;
+        int maxCount = 0, count = 1;
+
+        if (words.length == 0)
+            return null;
+
+        for (String s : words){
+            if (s.equals(word) && check(s) && !s.isEmpty()){
+                count++;
+            }
+            else {
+                if (count > maxCount){
+                    maxCount = count;
+                    maxWord = word;
+                }
+                word = s;
+                count = 1;
+            }
+        }
+
+        if (maxWord == null)
+            return null;
+
+        if (count > maxCount){
+            maxCount = count;
+            maxWord = word;
+        }
+
+        return maxWord;
+    }
 }
 
