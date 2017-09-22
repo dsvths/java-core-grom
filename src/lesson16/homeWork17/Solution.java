@@ -121,14 +121,13 @@ public class Solution {
                 count = 1;
             }
         }
-
-        if (maxWord == null)
-            return null;
-
+        
         if (count > maxCount){
             maxCount = count;
             maxWord = word;
         }
+        if (maxWord == null)
+            return null;
 
         return maxWord;
     }
