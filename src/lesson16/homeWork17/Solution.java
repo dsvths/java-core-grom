@@ -121,8 +121,8 @@ public class Solution {
                 count = 1;
             }
         }
-        
-        if (count > maxCount){
+
+        if (count > maxCount && check(word)){
             maxCount = count;
             maxWord = word;
         }
