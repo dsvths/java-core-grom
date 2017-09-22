@@ -122,7 +122,7 @@ public class Solution {
             }
         }
 
-        if (count > maxCount && check(word)){
+        if (count > maxCount){
             maxCount = count;
             maxWord = word;
         }
