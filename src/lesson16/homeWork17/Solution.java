@@ -22,7 +22,7 @@ public class Solution {
 
         System.out.println(minWord(test));
 
-        System.out.println(mostCountedWord(test));
+        System.out.println(mostCountedWord(test2));
 
     }
 
@@ -99,35 +99,32 @@ public class Solution {
     }
 
     public static String mostCountedWord(String input){
+        if (input.isEmpty())
+            return  null;
+
         String[] words = input.split(" ");
-        Arrays.sort(words);
 
-        String maxWord = null, word = null;
-        int maxCount = 0, count = 1;
+        String maxWord = null;
+        int maxCount = 0;
 
-        if (words.length == 0)
-            return null;
+        for (String word : words) {
+            int count = 0;
+            for (String item : words) {
+                if (word.equals(item) && check(item) && word.length() > 0) {
+                    count++;
+                }
 
-        for (String s : words){
-            if (s.equals(word) && check(s) && !s.isEmpty() && s.length() > 0){
-                count++;
-            }
-            else {
-                if (count > maxCount){
+                if (count > maxCount) {
                     maxCount = count;
                     maxWord = word;
                 }
-                word = s;
-                count = 1;
+            }
+
+            if (count > maxCount) {
+                maxCount = count;
+                maxWord = word;
             }
         }
-
-        if (count > maxCount){
-            maxCount = count;
-            maxWord = word;
-        }
-        if (maxWord == null)
-            return null;
 
         return maxWord;
     }
