@@ -109,7 +109,7 @@ public class Solution {
             return null;
 
         for (String s : words){
-            if (s.equals(word) && check(s) && !s.isEmpty()){
+            if (s.equals(word) && check(s) && !s.isEmpty() && s.length() > 0){
                 count++;
             }
             else {
