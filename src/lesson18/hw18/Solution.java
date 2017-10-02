@@ -24,12 +24,10 @@ public class Solution {
                         res[i] = Integer.parseInt(words[i]);
                 }
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             for (String word : words)
-                {
-                    if (!check(word))
-                        System.err.println(word + " is not a number");
-                } //System.err.println(word + " is not a number");
+                if (!check(word))
+            System.err.println(word + " is not a number");
         }
 
         return res;
