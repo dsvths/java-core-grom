@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class Solution {
     public static void main(String[] args) {
 
-        System.out.println(Arrays.toString(findNumbers("17623 2346 87134 845uyu 488itg")));
+        System.out.println(Arrays.toString(findNumbers(" gjhft 17623 2346 87134 845uyu 488itg")));
 
     }
 
@@ -20,7 +20,7 @@ public class Solution {
         try {
             for (String word : words) {
                 for (int i = 0; i < words.length; i++) {
-                    if (check(word) && !word.isEmpty())
+                    if (check(word))
                         res[i] = Integer.parseInt(words[i]);
                 }
             }
