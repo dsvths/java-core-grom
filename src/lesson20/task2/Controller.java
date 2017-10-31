@@ -1,5 +1,7 @@
 package lesson20.task2;
 
+import lesson20.task2.exception.BadRequestException;
+import lesson20.task2.exception.InternalServerEsception;
 import lesson20.task2.exception.LimitExceeded;
 
 /**
@@ -10,7 +12,7 @@ public class Controller {
 
 
 
-    public Transaction save(Transaction transaction) throws LimitExceeded {
+    public Transaction save(Transaction transaction) throws BadRequestException, InternalServerEsception {
         return transactionDAO.save(transaction);
 
         //create response
@@ -19,16 +21,16 @@ public class Controller {
 
     Transaction[] transactionList() {
 
-        return null;
+        return transactionDAO.transactionList();
     }
 
     Transaction[] transactionList(String city) {
 
-        return null;
+        return transactionDAO.transactionList();
     }
 
     Transaction[] transactionList(int amount) {
 
-        return null;
+        return transactionDAO.transactionList();
     }
 }

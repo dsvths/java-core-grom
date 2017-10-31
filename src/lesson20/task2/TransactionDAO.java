@@ -1,7 +1,10 @@
 package lesson20.task2;
 
+import lesson20.task2.exception.BadRequestException;
+import lesson20.task2.exception.InternalServerEsception;
 import lesson20.task2.exception.LimitExceeded;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -12,19 +15,20 @@ public class TransactionDAO {
     private Transaction[] transactions = new Transaction[10];
     private Utils utils = new Utils();
 
-    public Transaction save(Transaction transaction) throws LimitExceeded{
+    public Transaction save(Transaction transaction) throws LimitExceeded, InternalServerEsception, BadRequestException {
 //        сумма транзакции больше указанного лимита +
 //        сумма транзакций за день больше дневного лимита +
 //        количество транзакций за день больше указанного лимита +
-//        если город оплаты (совершения транзакции)
-//        не хватило места
+//        если город оплаты (совершения транзакции) ++
+//        не хватило места++
 
-        //TODO
+        if (!validate(transaction))
+            return null;
 
         return transaction;
     }
 
-    private void validate(Transaction transaction) throws LimitExceeded {
+    private boolean validate(Transaction transaction) throws InternalServerEsception, BadRequestException {
         if (transaction.getAmount() > utils.getLimitSimpleTransactionAmount())
             throw new LimitExceeded("Transaction limit amount exceeded " + transaction.getId() + ". Can't be saved");
 
@@ -43,22 +47,53 @@ public class TransactionDAO {
             throw new LimitExceeded("Transaction limit per day exceeded " + transaction.getId() + ". Can't be saved");
         }
 
-        //TODO
+        if (!Arrays.asList(utils.getCities()).contains(transaction.getCity())) {
+            throw new BadRequestException("For Transaction " + transaction.getId() + " city " + transaction.getCity() + " is wrong");
+        }
+
+        int index = 0;
+        for (Transaction transaction1 : transactions) {
+            if (transaction1 == null) {
+                transactions[index] = transaction;
+            }
+            index++;
+        }
+        throw new InternalServerEsception("Not enough space to save transaction " + transaction.getId());
     }
 
     Transaction[] transactionList() {
-
-        return null;
+        int index = 0;
+        Transaction[] resultList = new Transaction[index];
+        for (Transaction tr : transactions) {
+            transactions[index] = tr;
+            index++;
+        }
+        return resultList;
     }
 
     Transaction[] transactionList(String city) {
 
-        return null;
+        int index = 0;
+        Transaction[] resultList = new Transaction[index];
+        for (Transaction tr : transactions) {
+            if (city == tr.getCity()) {
+                transactions[index] = tr;
+            }
+            index++;
+        }
+        return resultList;
     }
 
     Transaction[] transactionList(int amount) {
-
-        return null;
+        int index = 0;
+        Transaction[] resultList = new Transaction[index];
+        for (Transaction tr : transactions) {
+            if (amount == tr.getAmount()) {
+                transactions[index] = tr;
+            }
+            index++;
+        }
+        return resultList;
     }
 
     private Transaction[] getTransactionsPerDay(Date dateOfCurTransaction) {
