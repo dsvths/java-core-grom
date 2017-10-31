@@ -15,15 +15,21 @@ public class TransactionDAO {
     private Transaction[] transactions = new Transaction[10];
     private Utils utils = new Utils();
 
-    public Transaction save(Transaction transaction) throws LimitExceeded, InternalServerException, BadRequestException {
+    public Transaction save(Transaction transaction) throws InternalServerException, BadRequestException {
 //        сумма транзакции больше указанного лимита +
 //        сумма транзакций за день больше дневного лимита +
 //        количество транзакций за день больше указанного лимита +
 //        если город оплаты (совершения транзакции) ++
 //        не хватило места++
 
-        if (!validate(transaction))
-            return null;
+        int i = 0;
+        for (Transaction tr : transactions) {
+            if (tr == null && validate(transaction)) {
+                transactions[i] = transaction;
+                break;
+            }
+            i++;
+        }
 
         return transaction;
     }
