@@ -1,7 +1,7 @@
 package lesson20.task2;
 
 import lesson20.task2.exception.BadRequestException;
-import lesson20.task2.exception.InternalServerEsception;
+import lesson20.task2.exception.InternalServerException;
 import lesson20.task2.exception.LimitExceeded;
 
 import java.util.Arrays;
@@ -15,7 +15,7 @@ public class TransactionDAO {
     private Transaction[] transactions = new Transaction[10];
     private Utils utils = new Utils();
 
-    public Transaction save(Transaction transaction) throws LimitExceeded, InternalServerEsception, BadRequestException {
+    public Transaction save(Transaction transaction) throws LimitExceeded, InternalServerException, BadRequestException {
 //        сумма транзакции больше указанного лимита +
 //        сумма транзакций за день больше дневного лимита +
 //        количество транзакций за день больше указанного лимита +
@@ -28,7 +28,7 @@ public class TransactionDAO {
         return transaction;
     }
 
-    private boolean validate(Transaction transaction) throws InternalServerEsception, BadRequestException {
+    private boolean validate(Transaction transaction) throws InternalServerException, BadRequestException {
         if (transaction.getAmount() > utils.getLimitSimpleTransactionAmount())
             throw new LimitExceeded("Transaction limit amount exceeded " + transaction.getId() + ". Can't be saved");
 
@@ -58,7 +58,7 @@ public class TransactionDAO {
             }
             index++;
         }
-        throw new InternalServerEsception("Not enough space to save transaction " + transaction.getId());
+        throw new InternalServerException("Not enough space to save transaction " + transaction.getId());
     }
 
     Transaction[] transactionList() {
