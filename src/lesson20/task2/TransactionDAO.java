@@ -31,6 +31,7 @@ public class TransactionDAO {
             index++;
         }
 
+
         return transaction;
     }
 
@@ -57,13 +58,13 @@ public class TransactionDAO {
             throw new BadRequestException("For Transaction " + transaction.getId() + " city " + transaction.getCity() + " is wrong");
         }
 
-//        int index = 0;
-//        for (Transaction transaction1 : transactions) {
-//            if (transaction1 == null) {
-//                transactions[index] = transaction;
-//            }
-//            index++;
-//        }
+        int index = 0;
+        for (Transaction transaction1 : transactions) {
+            if (transaction1 == null) {
+                transactions[index] = transaction;
+            }
+            index++;
+        }
         throw new InternalServerException("Not enough space to save transaction " + transaction.getId());
     }
 
